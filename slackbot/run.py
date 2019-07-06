@@ -13,7 +13,6 @@ from slackbot.bot import listen_to
 from slackbot.bot import default_reply 
 
 count = 0
-saveword = ""
 
 def main():
     bot = Bot()
@@ -22,7 +21,6 @@ def main():
 @default_reply()
 def default_func(message):
     global count       
-    global saveword
 
     text = ""
     text += message.body['text']    
@@ -40,7 +38,7 @@ def default_func(message):
             msg = word + "に馴染みはありますか？（はい/いいえ）"
         else:
             msg = "エラー"
-        saveword = word
+
         count = 2
 
     elif((count == 2) & (text == "はい")):
@@ -49,7 +47,6 @@ def default_func(message):
     
     elif((count == 3) & (text in "行う見る行く起こる使う")):
         t = eliza.push(text)
-        print(t["状況"][0])
         msg = saveword + t["状況"][random.randint(0,1)]
         count = 0
 

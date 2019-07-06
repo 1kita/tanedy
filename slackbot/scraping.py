@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import random
 
 def relation(word):
-    w = ""
+    reword = ""
     try:
         try:
             target_url = "https://contentsearch.jp/textmining.php?q="+word+"&mode=highreactiononly&authority="
@@ -36,12 +36,12 @@ def relation(word):
 
             num = round(len(text)-1/2)
             text = text[0:num]
-            w = text[random.randint(0,len(text)-1)]
-            w = w.lstrip(word)
+            reword = text[random.randint(0,len(text)-1)]
+            reword = reword.lstrip(word)
     except :
-        w = "エラー"
+        reword = "エラー"
 
-    return  w
+    return  reword
    
 
 if __name__ == "__main__":
