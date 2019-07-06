@@ -22,20 +22,17 @@ def relation(word):
 
         except:
             target_url = "https://www.google.com/trends/correlate/search?e="+ word +"&t=monthly&p=jp#default,90"
-            r = requests.get(target_url)         
-            soup = BeautifulSoup(r.text,"html.parser") 
-            # print(soup)
+            res = requests.get(target_url)         
+            soup = BeautifulSoup(res.text,"html.parser") 
             li = soup.find_all('li',{"class":"result"})
             atug = []
             for a in li:
                 atug += a.find_all('a')
 
-            # print(atug)
             text = []
             for a in atug:
                 text.append(a.get_text())
 
-            # print(text)
 
             num = round(len(text)-1/2)
             text = text[0:num]

@@ -25,7 +25,7 @@ def pedia(word):
             part = thesaurus[random.randint(0,len(thesaurus)-1)]
             mb = mt.parse(part)
             count += 1
-            print(mb)
+
             if((u"固有名詞" not in mb) | (count > 100)):
                 break
 
