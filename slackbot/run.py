@@ -8,8 +8,8 @@ import requests
 import random
 import time
 from slackbot.bot import Bot
-from slackbot.bot import respond_to     # @botname: で反応するデコーダ
-from slackbot.bot import listen_to      # チャネル内発言で反応するデコーダ
+from slackbot.bot import respond_to     
+from slackbot.bot import listen_to      
 from slackbot.bot import default_reply 
 
 count = 0
@@ -58,7 +58,7 @@ def default_func(message):
         count = 1
     
 
-    message.reply(msg)      # メンション
+    message.reply(msg)    
 
 
 if __name__ == "__main__":
